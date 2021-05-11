@@ -1,12 +1,13 @@
 package Hrms.hrmsProject.entities.concretes;
 
+
+
+ 
+
 import java.sql.Date;
-import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
@@ -34,5 +35,5 @@ public class Employee extends User  {
 	private String lastName;
 	
 	@Column(name = "birthday")
-	private LocalDate birthDay;
+	private Date birthDay;
 }
