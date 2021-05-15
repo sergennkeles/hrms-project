@@ -1,4 +1,4 @@
-# hmrs-project
+# hrms-project
 
 <h1>Entities</h1>
 <ul>
