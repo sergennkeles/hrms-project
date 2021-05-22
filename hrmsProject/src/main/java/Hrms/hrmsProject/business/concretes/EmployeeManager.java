@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Hrms.hrmsProject.business.abstracts.EmployeeService;
+import Hrms.hrmsProject.core.utilities.results.DataResult;
+import Hrms.hrmsProject.core.utilities.results.Result;
+import Hrms.hrmsProject.core.utilities.results.SuccessDataResult;
+import Hrms.hrmsProject.core.utilities.results.SuccessResult;
 import Hrms.hrmsProject.dataAccess.abstracts.EmployeeDao;
 import Hrms.hrmsProject.entities.concretes.Employee;
 
@@ -21,16 +25,17 @@ public class EmployeeManager implements EmployeeService {
 	}
 
 	@Override
-	public void add(Employee employee) {
+	public Result add(Employee employee) {
 		
 		this.employeeDao.save(employee);
+		return new SuccessResult("Kullanıcı eklendi.");
 		
 	}
 
 	@Override
-	public List<Employee> getAll() {
-		// TODO Auto-generated method stub
-		return this.employeeDao.findAll();
+	public DataResult<List<Employee>> getAll() {
+	
+		return new SuccessDataResult<List<Employee>>(this.employeeDao.findAll(), "Listelendi.") ;
 	}
 
 }
