@@ -6,4 +6,6 @@ import Hrms.hrmsProject.entities.concretes.User;
 
 public interface UsersDao extends JpaRepository<User, Integer> {
 
+	
+	
 }

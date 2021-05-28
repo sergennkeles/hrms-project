@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,14 +25,14 @@ public class User {
 	@Column(name ="id" )
 	private int id;
 	
-	@Column(name = "mail", unique =true )
+	@NotBlank(message = "Mail alanı boş geçilemez.")
+	@Column(name = "mail")
 	private String mail;
 	
+	@NotBlank(message = "Şifre alanı boş geçilemez.")
 	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "confirm")
-	private boolean confirm;
 	
 
 }

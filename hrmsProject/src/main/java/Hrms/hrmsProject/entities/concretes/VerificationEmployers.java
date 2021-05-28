@@ -10,19 +10,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="verifications")
-public class Verification {
+@Table(name="verification_employers")
+public class VerificationEmployers {
 
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
 	private int id;
-
 	
-	@Column(name = "verification_code")
-	private int verificationCode;
-	
-	
-	@Column(name = "is_verified")
-	private boolean isVerified;
+	@Column(name = "employer_id")
+	private int employerId;
 }
