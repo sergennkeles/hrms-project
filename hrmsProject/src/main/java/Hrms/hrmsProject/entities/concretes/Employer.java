@@ -20,8 +20,7 @@ import lombok.NoArgsConstructor;
 public class Employer extends User {
 
 
-	@Column(name = "jobs_id")
-	private int jobsId;
+
 	
 	@NotBlank(message = "Şirket adı alanı boş geçilemez.")
 	@Column(name = "company_name")
