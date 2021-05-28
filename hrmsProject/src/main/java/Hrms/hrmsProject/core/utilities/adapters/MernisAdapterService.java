@@ -15,20 +15,33 @@ public class MernisAdapterService implements MernisCheckService {
 		 boolean adapterResult=false;
 	 try {
 		
-		 adapterResult=kpsPublicSoapProxy.TCKimlikNoDogrula(Long.parseLong(employee.getNationalityId()) , 
-					 employee.getFirstName().toUpperCase(), employee.getLastName().toUpperCase(), employee.getBirthDay().getYear());
-			
-		//	System.out.println("Doğrulama: "+(result ? "Başarılı":"Başarısız"));
+			/*
+			 * adapterResult=kpsPublicSoapProxy.TCKimlikNoDogrula(Long.parseLong(employee.
+			 * getNationalityId()) , employee.getFirstName().toUpperCase(),
+			 * employee.getLastName().toUpperCase(), employee.getBirthDay().getYear());
+			 */
+			System.out.println("Doğrulama: "+(adapterResult ? "Başarılı":"Başarısız"));
 	 	}
-	 
+	
 	 catch (Exception e) {
 		
 		 return new ErrorResult("Doğrulama başarısız");
+		 
 	}
-		
+	 	
+	 
 		return new SuccessResult("Doğrulama başarılı");
 	}
-	
+
+	@Override
+	public Result checkVirtualPerson(String nationalityId, String firstName, String lastName, String birthday) {
+		
+		if (nationalityId.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || birthday.isEmpty()) {
+			
+			return new ErrorResult("Doğrulama başarısız");
+		}
+		return new SuccessResult("Doğrulama başarılı.");
+	}
 	
 
 }

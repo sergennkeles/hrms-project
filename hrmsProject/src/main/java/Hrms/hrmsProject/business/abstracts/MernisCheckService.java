@@ -7,4 +7,6 @@ import Hrms.hrmsProject.entities.concretes.Employee;
 public interface MernisCheckService {
 	
 	Result checkRealPerson(Employee employee);
+	
+	Result checkVirtualPerson(String nationalityId,String firstName,String lastName,String birthday);
 }
