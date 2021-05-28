@@ -15,7 +15,7 @@ import Hrms.hrmsProject.business.abstracts.EmployeeService;
 import Hrms.hrmsProject.core.utilities.results.DataResult;
 import Hrms.hrmsProject.core.utilities.results.Result;
 import Hrms.hrmsProject.entities.concretes.Employee;
-import Hrms.hrmsProject.entities.concretes.Job;
+
  
 
 

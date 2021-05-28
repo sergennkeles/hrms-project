@@ -35,5 +35,5 @@ public class Employee extends User  {
 	
 	@NotBlank(message = "Doğum tarihi alanı boş geçilemez.")
 	@Column(name = "birthday")
-	private Date birthDay;
+	private String birthDay;
 }

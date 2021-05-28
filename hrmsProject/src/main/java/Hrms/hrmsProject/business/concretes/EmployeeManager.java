@@ -27,7 +27,7 @@ public class EmployeeManager implements EmployeeService {
 	public EmployeeManager(EmployeeDao employeeDao) {
 		super();
 		this.employeeDao = employeeDao;
-		// this.checkEmployee=new MernisAdapterService();
+		this.checkEmployee=new MernisAdapterService();
 	}
 
 	@Override
@@ -36,8 +36,8 @@ public class EmployeeManager implements EmployeeService {
 	
 		Result result = BusinessRules.run(
 										isMailExist(employee.getMail()),
-										isNationalityIdExist(employee.getNationalityId())
-										);
+										isNationalityIdExist(employee.getNationalityId()),
+										mernisControl(employee));
 		if (result != null) {
 
 			return result;
@@ -54,48 +54,6 @@ public class EmployeeManager implements EmployeeService {
 		return new SuccessDataResult<List<Employee>>(this.employeeDao.findAll(), "Listelendi.");
 	}
 
-	/*
-	 * private Result firstNameIsNull() { if
-	 * (employeeDao.getByFirstNameIsNotNull()==null) {
-	 * 
-	 * return new ErrorResult("İsim alanı boş bırakılamaz."); } else {
-	 * 
-	 * return new SuccessResult(); } }
-	 * 
-	 * private Result lastNameIsNull() { if
-	 * (employeeDao.getByLastNameIsNotNull()==null) {
-	 * 
-	 * return new ErrorResult("Soyisim alanı boş bırakılamaz."); } else {
-	 * 
-	 * return new SuccessResult(); } }
-	 * 
-	 * private Result birthdayIsNull() { if
-	 * (employeeDao.getByBirthDayIsNotNull()==null) {
-	 * 
-	 * return new ErrorResult("Doğum tarihi alanı boş bırakılamaz."); } else {
-	 * 
-	 * return new SuccessResult(); } }
-	 * 
-	 * private Result nationalityIdIsNull() { if
-	 * (employeeDao.getByNationalityIdIsNotNull()==null) {
-	 * 
-	 * return new ErrorResult("TC kimlik no alanı boş bırakılamaz."); } else {
-	 * 
-	 * return new SuccessResult(); } }
-	 * 
-	 * private Result mailIsNull() { if (employeeDao.getByMailIsNotNull()==null) {
-	 * 
-	 * return new ErrorResult("Mail alanı boş bırakılamaz."); } else {
-	 * 
-	 * return new SuccessResult(); } }
-	 * 
-	 * private Result passwordIsNull() { if
-	 * (employeeDao.getByPasswordIsNotNull()==null) {
-	 * 
-	 * return new ErrorResult("Parola alanı boş bırakılamaz."); } else {
-	 * 
-	 * return new SuccessResult(); } }
-	 */
 	
 	private Result isMailExist(String mail) {
 
@@ -116,6 +74,16 @@ public class EmployeeManager implements EmployeeService {
 		} else {
 			return new ErrorResult("Bu Tc kimlik no ile kayıtlı kullanıcı var.");
 		}
-
+	}
+	
+	private Result mernisControl(Employee employee) {
+		
+		if (this.checkEmployee.checkVirtualPerson(employee.getNationalityId(), 
+												employee.getFirstName(),
+												employee.getLastName(),
+												employee.getBirthDay()).isSuccess()) {
+			return new SuccessResult();
+		}
+		return new ErrorResult("Doğrulama başarısız.");
 	}
 }
