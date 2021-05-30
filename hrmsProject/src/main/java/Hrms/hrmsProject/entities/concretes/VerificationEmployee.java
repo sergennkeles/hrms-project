@@ -1,5 +1,7 @@
 package Hrms.hrmsProject.entities.concretes;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -22,6 +24,10 @@ public class VerificationEmployee extends Verification {
 	@Column(name = "employee_id")
 	private int employeeId;
 		
+	public VerificationEmployee(int id, String verificationCode, boolean isVerified, LocalDate dateOfRegistration, int employeeId) {
+		super(id,verificationCode,isVerified,dateOfRegistration);
+		this.employeeId = employeeId;
+	}
 	
 //	
 //	@OneToOne(mappedBy = "verification_employers")
