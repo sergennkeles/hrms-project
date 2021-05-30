@@ -1,9 +1,9 @@
 package Hrms.hrmsProject.core.utilities.verification;
 
 
-public interface VerificationService {
+public interface CodeGeneratorService {
 	
-	void verificationLink(String mail);
+	String verificationLink(String mail);
 	String verificationCode();
 
 }

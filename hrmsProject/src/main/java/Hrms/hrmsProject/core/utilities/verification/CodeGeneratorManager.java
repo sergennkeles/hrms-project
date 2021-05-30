@@ -2,11 +2,15 @@ package Hrms.hrmsProject.core.utilities.verification;
 
 import java.util.UUID;
 
+import Hrms.hrmsProject.business.abstracts.VerificationService;
 
-public class VerificationManager implements VerificationService{
+
+public class CodeGeneratorManager implements CodeGeneratorService{
+
+
 
 	@Override
-	public void verificationLink(String mail) {
+	public String verificationLink(String mail) {
 		UUID code=UUID.randomUUID();
 		
 		String link="https://hrmsverification/"+code.toString();
@@ -14,6 +18,7 @@ public class VerificationManager implements VerificationService{
 		System.out.println("Doğrulama maili "+ mail +" adresinize gönderildi."
 				+ "Linke tıklayarak hesabınızı aktif edebilirsiniz"+ link);
 		
+		return link;
 	}
 
 	@Override
