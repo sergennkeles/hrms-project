@@ -1,6 +1,6 @@
 package Hrms.hrmsProject.entities.concretes;
 
-import java.sql.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,9 +11,11 @@ import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @NoArgsConstructor

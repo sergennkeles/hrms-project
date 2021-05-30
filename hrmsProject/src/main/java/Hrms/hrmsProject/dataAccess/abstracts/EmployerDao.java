@@ -10,4 +10,5 @@ import Hrms.hrmsProject.entities.concretes.User;
 public interface EmployerDao extends JpaRepository<Employer, Integer> {
 
 	List<User> findByMailContaining(String mail);
+
 }

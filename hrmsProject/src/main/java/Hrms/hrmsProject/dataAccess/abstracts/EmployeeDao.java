@@ -16,7 +16,7 @@ public interface EmployeeDao extends JpaRepository<Employee, Integer > {
 
 	
 	List<User> findByMailContaining(String mail);
-	List<User> findByNationalityIdContaining(String nationalityId);
+	List<Employee> findByNationalityIdContaining(String nationalityId);
 	
 	
 }
