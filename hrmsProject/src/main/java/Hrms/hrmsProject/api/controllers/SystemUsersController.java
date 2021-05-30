@@ -10,6 +10,7 @@ import Hrms.hrmsProject.business.abstracts.SystemUserService;
 @RequestMapping("api/systemusers")
 public class SystemUsersController {
 
+	
 	private SystemUserService systemUserService;
 
 	@Autowired
