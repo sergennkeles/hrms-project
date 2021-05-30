@@ -167,7 +167,7 @@ public class AuthManager implements AuthService {
 			return new SuccessResult();
 
 		} else {
-			return new ErrorResult("Bu mail ile kayıtlı şirket var.");
+			return new ErrorResult("Bu mail ile kayıtlı kullanıcı var.");
 		}
 
 	}
