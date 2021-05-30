@@ -34,16 +34,13 @@ public class EmployerManager implements EmployerService {
 	@Override
 	public Result add(Employer employer) {
 		
-		Result result=BusinessRules.run(isCompanyMailExist(employer.getMail()));
-		if (result!=null) {
-			
-			return result;
-		}
+
 		employerDao.save(employer);
 		return new SuccessResult("İşveren eklendi.");
 	}
-
-	private Result isCompanyMailExist(String mail) {
+	
+	@Override
+	 public Result isCompanyMailExist(String mail) {
 
 		if (employerDao.findByMailContaining(mail).isEmpty()) {
 			return new SuccessResult();
