@@ -2,8 +2,6 @@ package Hrms.hrmsProject.core.utilities.verification;
 
 import java.util.UUID;
 
-import Hrms.hrmsProject.core.utilities.results.Result;
-import Hrms.hrmsProject.core.utilities.results.SuccessResult;
 
 public class VerificationManager implements VerificationService{
 

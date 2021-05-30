@@ -1,6 +1,6 @@
 package Hrms.hrmsProject.entities.concretes;
 
-import java.time.LocalDate;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

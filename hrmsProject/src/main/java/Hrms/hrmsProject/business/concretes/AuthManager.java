@@ -12,7 +12,6 @@ import Hrms.hrmsProject.core.utilities.results.Result;
 import Hrms.hrmsProject.core.utilities.results.SuccessResult;
 import Hrms.hrmsProject.entities.concretes.Employee;
 import Hrms.hrmsProject.entities.concretes.Employer;
-import Hrms.hrmsProject.entities.concretes.Verification;
 import Hrms.hrmsProject.entities.concretes.VerificationEmployer;
 
 @Service

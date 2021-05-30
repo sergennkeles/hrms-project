@@ -1,6 +1,5 @@
 package Hrms.hrmsProject.core.utilities.verification;
 
-import Hrms.hrmsProject.core.utilities.results.Result;
 
 public interface VerificationService {
 	

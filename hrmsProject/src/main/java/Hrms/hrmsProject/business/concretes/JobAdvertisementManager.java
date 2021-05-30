@@ -2,9 +2,8 @@ package Hrms.hrmsProject.business.concretes;
 
 import java.util.List;
 
-import org.apache.axis.holders.TimeHolder;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import Hrms.hrmsProject.business.abstracts.JobAdvertisementService;
@@ -46,7 +45,7 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 
 	@Override
 	public DataResult<List<JobAdvertisement>> findByIsActiveTrue() {
-		Sort sort=Sort.by(Sort.Direction.ASC,"productName");
+
 		return new SuccessDataResult<List<JobAdvertisement>>(advertisementDao.findByIsActiveTrue(),"Aktif iş ilanları listelendi.");
 	}
 

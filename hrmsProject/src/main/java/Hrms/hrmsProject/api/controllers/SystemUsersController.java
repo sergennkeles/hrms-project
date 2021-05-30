@@ -11,7 +11,7 @@ import Hrms.hrmsProject.business.abstracts.SystemUserService;
 public class SystemUsersController {
 
 	
-	private SystemUserService systemUserService;
+	 SystemUserService systemUserService;
 
 	@Autowired
 	public SystemUsersController(SystemUserService systemUserService) {
