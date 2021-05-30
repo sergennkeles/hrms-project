@@ -42,8 +42,8 @@ public class User {
 //	@Column(name= "created_at", columnDefinition = "Date defult CURRENT_DATE")
 //	private LocalDate createdAt = LocalDate.now();
 //	
-//	@Column(name= "is_active", columnDefinition = "boolean default true")
-//	private boolean isActive = true;
+	@Column(name= "is_active", columnDefinition = "boolean default true")
+	private boolean Active = true;
 //	
 //	@Column(name= "is_deleted", columnDefinition = "boolean default false")
 //	private boolean isDeleted = false;

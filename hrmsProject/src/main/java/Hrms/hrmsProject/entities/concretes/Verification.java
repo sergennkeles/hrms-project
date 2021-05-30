@@ -36,9 +36,6 @@ public class Verification {
 	private String verificationCode;
 	
 	
-	@Column(name = "is_verified")
-	private boolean isVerified;
-	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	@Column(name="date_of_registration", columnDefinition = "Date default CURRENT_DATE")
 	private LocalDate dateOfRegistration = LocalDate.now();

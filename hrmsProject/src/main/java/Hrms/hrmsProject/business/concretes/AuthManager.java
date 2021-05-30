@@ -100,7 +100,7 @@ public class AuthManager implements AuthService {
 
 	private void verificationCodeForEmployers(String code, int id, String email, int employerId) {
 
-		VerificationEmployer verificationCode = new VerificationEmployer(id, code, false, LocalDate.now(), employerId);
+		VerificationEmployer verificationCode = new VerificationEmployer(id, code, LocalDate.now(), employerId);
 		this.verificationService.add(verificationCode);
 		System.out.println("Doğrulama maili gönderildi. " + email);
 
@@ -155,7 +155,7 @@ public class AuthManager implements AuthService {
     
     private void verificationCodeForEmployees(String code, int id, String email, int employerId) {
 
-		VerificationEmployee verificationCode = new VerificationEmployee(id, code, false, LocalDate.now(), employerId);
+		VerificationEmployee verificationCode = new VerificationEmployee(id, code, LocalDate.now(), employerId);
 		this.verificationService.add(verificationCode);
 		System.out.println("Doğrulama maili gönderildi. " + email);
 

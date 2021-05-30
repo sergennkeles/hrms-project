@@ -13,6 +13,7 @@ import Hrms.hrmsProject.core.utilities.results.SuccessDataResult;
 import Hrms.hrmsProject.core.utilities.results.SuccessResult;
 import Hrms.hrmsProject.dataAccess.abstracts.EmployerDao;
 import Hrms.hrmsProject.entities.concretes.Employer;
+import Hrms.hrmsProject.entities.concretes.JobAdvertisement;
 
 @Service
 public class EmployerManager implements EmployerService {
@@ -49,5 +50,14 @@ public class EmployerManager implements EmployerService {
 			return new ErrorResult("Bu mail ile kayıtlı şirket var.");
 		}
 
+	}
+
+	@Override
+	public Result employerConfirm(int id, boolean active) {
+		
+		Employer tempValue=this.employerDao.findById(id).orElse(null);
+		tempValue.setActive(active);
+		this.employerDao.save(tempValue);
+		return new SuccessResult("İşveren onaylandı.");
 	}
 }

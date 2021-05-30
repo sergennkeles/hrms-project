@@ -24,8 +24,8 @@ public class VerificationEmployee extends Verification {
 	@Column(name = "employee_id")
 	private int employeeId;
 		
-	public VerificationEmployee(int id, String verificationCode, boolean isVerified, LocalDate dateOfRegistration, int employeeId) {
-		super(id,verificationCode,isVerified,dateOfRegistration);
+	public VerificationEmployee(int id, String verificationCode, LocalDate dateOfRegistration, int employeeId) {
+		super(id,verificationCode,dateOfRegistration);
 		this.employeeId = employeeId;
 	}
 	

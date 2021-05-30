@@ -20,8 +20,8 @@ public class VerificationEmployer extends Verification {
 	@Column(name = "employer_id")
 	private int employerId;
 
-	public VerificationEmployer(int id, String verificationCode, boolean isVerified, LocalDate dateOfRegistration, int employerId) {
-		super(id,verificationCode,isVerified,dateOfRegistration);
+	public VerificationEmployer(int id, String verificationCode, LocalDate dateOfRegistration, int employerId) {
+		super(id,verificationCode,dateOfRegistration);
 		this.employerId = employerId;
 	}
 	
