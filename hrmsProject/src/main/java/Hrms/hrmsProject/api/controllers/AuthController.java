@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Hrms.hrmsProject.business.abstracts.AuthService;
 import Hrms.hrmsProject.core.utilities.results.Result;
+import Hrms.hrmsProject.entities.concretes.Employee;
 import Hrms.hrmsProject.entities.concretes.Employer;
 
 @RestController
@@ -22,11 +23,16 @@ public class AuthController {
 	}
 	
 	@PostMapping("/registerEmployer")
-	public Result registerEmpolyer(@RequestBody Employer employer, String confirmPassword)
+	public Result registerEmpolyer(@RequestBody Employer employer)
 	{
-		return authService.registerWithEmployer(employer, confirmPassword);
+		return authService.registerWithEmployer(employer);
 	}
 	
+	@PostMapping("/registerEmployee")
+	public Result registerEmpolyee(@RequestBody Employee employee)
+	{
+		return authService.registerWithEmployee(employee);
+	}
 
 	
 }

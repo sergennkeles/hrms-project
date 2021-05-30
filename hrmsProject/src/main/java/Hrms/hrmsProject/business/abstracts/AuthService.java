@@ -6,6 +6,6 @@ import Hrms.hrmsProject.entities.concretes.Employer;
 
 public interface AuthService {
 
-	Result registerWithEmployee(Employee employee,String verify);
-	Result registerWithEmployer(Employer employer,String verify);
+	Result registerWithEmployee(Employee employee);
+	Result registerWithEmployer(Employer employer);
 }
