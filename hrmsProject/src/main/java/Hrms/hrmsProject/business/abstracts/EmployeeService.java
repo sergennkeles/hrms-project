@@ -12,5 +12,7 @@ public interface EmployeeService {
 
 	Result add(Employee employee);
 	DataResult<List<Employee>>  getAll();
+	Result isNationalityIdExist(String nationalityId);
+	Result isEmployeeMailExist(String mail);
 	
 }

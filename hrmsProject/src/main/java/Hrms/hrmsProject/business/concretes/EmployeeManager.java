@@ -33,19 +33,9 @@ public class EmployeeManager implements EmployeeService {
 	@Override
 	public Result add(Employee employee) {
 
-	
-		Result result = BusinessRules.run(
-										isMailExist(employee.getMail()),
-										isNationalityIdExist(employee.getNationalityId()),
-										mernisControl(employee));
-		if (result != null) {
-
-			return result;
-		} else {
 			this.employeeDao.save(employee);
 			return new SuccessResult("Kullanıcı eklendi.");
-		}
-
+	
 	}
 
 	@Override
@@ -54,8 +44,8 @@ public class EmployeeManager implements EmployeeService {
 		return new SuccessDataResult<List<Employee>>(this.employeeDao.findAll(), "Listelendi.");
 	}
 
-	
-	private Result isMailExist(String mail) {
+	@Override
+	public Result isEmployeeMailExist(String mail) {
 
 		if (employeeDao.findByMailContaining(mail).isEmpty()) {
 			return new SuccessResult();
@@ -66,7 +56,8 @@ public class EmployeeManager implements EmployeeService {
 
 	}
 	
-	private Result isNationalityIdExist(String nationalityId) {
+	@Override
+	public Result isNationalityIdExist(String nationalityId) {
 
 		if (employeeDao.findByNationalityIdContaining(nationalityId).isEmpty()) {
 			return new SuccessResult();
@@ -76,14 +67,5 @@ public class EmployeeManager implements EmployeeService {
 		}
 	}
 	
-	private Result mernisControl(Employee employee) {
-		
-		if (this.checkEmployee.checkVirtualPerson(employee.getNationalityId(), 
-												employee.getFirstName(),
-												employee.getLastName(),
-												employee.getBirthDay()).isSuccess()) {
-			return new SuccessResult();
-		}
-		return new ErrorResult("Doğrulama başarısız.");
-	}
+	
 }
