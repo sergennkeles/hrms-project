@@ -36,4 +36,10 @@ public class EmployeeEducationManager implements EmployeeEducationService {
 		return new SuccessDataResult<List<EmployeeEducation>>(employeEducationDao.findAll(),"Eğitim bilgileri listelendi");
 	}
 
+	@Override
+	public DataResult<List<EmployeeEducation>> findByEmployeeIdOrderByEndDate(int employeeId) {
+		
+		return new SuccessDataResult<List<EmployeeEducation>>(employeEducationDao.findByEmployeeIdOrderByEndDate(employeeId));
+	}
+
 }

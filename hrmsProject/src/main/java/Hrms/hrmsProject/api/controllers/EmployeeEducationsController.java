@@ -38,4 +38,10 @@ public class EmployeeEducationsController {
 	{
 		return educationService.getAll();
 	}
+	
+	@GetMapping("/findByEmployeeIdOrderByEndDate")
+	public DataResult<List<EmployeeEducation>> findByEmployeeIdOrderByEndDate(int employeeId)
+	{
+		return educationService.findByEmployeeIdOrderByEndDate(employeeId);
+	}
 }
