@@ -69,5 +69,5 @@ public class Employee extends User  {
 	@OneToMany(mappedBy = "employee")
 	private List<EmployeeTechnology> employeTechnologies;
 	
-	
+	 
 }
