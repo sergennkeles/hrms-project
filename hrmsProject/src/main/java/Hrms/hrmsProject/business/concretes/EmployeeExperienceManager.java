@@ -36,4 +36,10 @@ public class EmployeeExperienceManager implements EmployeeExperienceService {
 		return new SuccessDataResult<List<EmployeeExperience>>(employeeExperienceDao.findAll());
 	}
 
+	@Override
+	public DataResult<List<EmployeeExperience>> findByEmployeeIdOrderByEndDateDesc(int employeeId) {
+		
+		return new SuccessDataResult<List<EmployeeExperience>>(employeeExperienceDao.findByEmployeeIdOrderByExperience_EndDateDesc(employeeId));
+	}
+
 }

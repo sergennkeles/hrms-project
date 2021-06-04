@@ -37,4 +37,10 @@ public class EmployeeExperiencesController {
 	{
 		return this.employeeExperienceService.getAll();
 	}
+	
+	@GetMapping("/findByEmployeeIdOrderByEndDateDesc")
+	public DataResult<List<EmployeeExperience>> findByEmployeeIdOrderByEndDateDesc(int employeeId)
+	{
+		return this.employeeExperienceService.findByEmployeeIdOrderByEndDateDesc(employeeId);
+	}
 }

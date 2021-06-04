@@ -11,4 +11,5 @@ public interface EmployeeExperienceService {
 
 	Result add(EmployeeExperience employeeExperience);
 	DataResult<List<EmployeeExperience>> getAll();
+	DataResult<List<EmployeeExperience>>  findByEmployeeIdOrderByEndDateDesc(int employeeId);
 }
