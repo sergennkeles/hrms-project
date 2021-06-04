@@ -17,6 +17,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -55,7 +56,7 @@ public class JobAdvertisement {
 
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	@Column(name = "dead_line_date")
-	private LocalDate deadLineDate;
+	private Date deadLineDate;
 	
 	@Column(name = "is_active")
 	private boolean isActive;
@@ -65,6 +66,7 @@ public class JobAdvertisement {
 	
 	@ManyToOne
 	@JoinColumn(name = "job_id")
+
 	private Job job;
 	
 	@ManyToOne

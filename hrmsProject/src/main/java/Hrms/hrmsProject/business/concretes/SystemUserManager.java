@@ -1,5 +1,6 @@
 package Hrms.hrmsProject.business.concretes;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Hrms.hrmsProject.business.abstracts.EmployerService;
@@ -14,6 +15,7 @@ public class SystemUserManager implements SystemUserService {
 	private SystemUserDao systemUserDao;
 	private EmployerService employerService;
 	
+	@Autowired
 	public SystemUserManager(SystemUserDao systemUserDao,EmployerService employerService) {
 		
 		this.systemUserDao = systemUserDao;

@@ -13,6 +13,7 @@ import Hrms.hrmsProject.core.utilities.results.SuccessDataResult;
 import Hrms.hrmsProject.core.utilities.results.SuccessResult;
 import Hrms.hrmsProject.dataAccess.abstracts.JobAdvertisementDao;
 import Hrms.hrmsProject.entities.concretes.JobAdvertisement;
+import Hrms.hrmsProject.entities.dtos.JobAdvertisementDto;
 
 @Service
 public class JobAdvertisementManager implements JobAdvertisementService {
@@ -74,6 +75,14 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 		tempValue.setActive(active);
 		this.advertisementDao.save(tempValue);
 		return new SuccessResult("İlan pasif edildi.");
+	}
+
+
+
+	@Override
+	public DataResult<List<JobAdvertisementDto>> getJobAdvertisementWithDetails() {
+		
+		return new SuccessDataResult<List<JobAdvertisementDto>>(advertisementDao.getJobAdvertisementWithDetails(), "İlan detayları listelendi.");
 	}
 
 }

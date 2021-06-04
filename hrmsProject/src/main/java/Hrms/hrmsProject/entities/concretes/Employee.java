@@ -3,15 +3,20 @@ package Hrms.hrmsProject.entities.concretes;
 
 
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,4 +48,26 @@ public class Employee extends User  {
 	@Column(name = "birthday")
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date birthDay;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "employee")
+	private List<EmployeeEducation> employeeEducations;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "employee")
+	private List<EmployeeExperience> employeeExperiences;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "employee")
+	private List<EmployeeLanguage> employeeLanguages;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "employee")
+	private List<EmployeeSocialMedia> employeeSocialMedias;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "employee")
+	private List<EmployeeTechnology> employeTechnologies;
+	
+	
 }

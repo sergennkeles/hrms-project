@@ -14,15 +14,16 @@ import Hrms.hrmsProject.business.abstracts.JobAdvertisementService;
 import Hrms.hrmsProject.core.utilities.results.DataResult;
 import Hrms.hrmsProject.core.utilities.results.Result;
 import Hrms.hrmsProject.entities.concretes.JobAdvertisement;
+import Hrms.hrmsProject.entities.dtos.JobAdvertisementDto;
 
 @RestController
 @RequestMapping("api/jobadvertisements")
-public class JobAdvertisementController {
+public class JobAdvertisementsController {
 
 	private JobAdvertisementService advertisementService;
 	
 	@Autowired
-	public JobAdvertisementController(JobAdvertisementService advertisementService) {
+	public JobAdvertisementsController(JobAdvertisementService advertisementService) {
 		this.advertisementService=advertisementService;
 	}
 	
@@ -61,4 +62,10 @@ public class JobAdvertisementController {
     {
         return this.advertisementService.setValueOfActive(id,active);
     }
+	
+	@GetMapping("/getJobAdvertisementWithDetails")
+	public DataResult<List<JobAdvertisementDto>> getJobAdvertisementWithDetails()
+	{
+		return advertisementService.getJobAdvertisementWithDetails();
+	}
 }

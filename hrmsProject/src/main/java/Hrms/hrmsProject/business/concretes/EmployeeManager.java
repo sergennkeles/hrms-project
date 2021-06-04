@@ -16,6 +16,7 @@ import Hrms.hrmsProject.core.utilities.results.SuccessDataResult;
 import Hrms.hrmsProject.core.utilities.results.SuccessResult;
 import Hrms.hrmsProject.dataAccess.abstracts.EmployeeDao;
 import Hrms.hrmsProject.entities.concretes.Employee;
+import Hrms.hrmsProject.entities.dtos.CvDetailDto;
 
 @Service
 public class EmployeeManager implements EmployeeService {
@@ -65,6 +66,13 @@ public class EmployeeManager implements EmployeeService {
 		} else {
 			return new ErrorResult("Bu Tc kimlik no ile kayıtlı kullanıcı var.");
 		}
+	}
+
+	@Override
+	public DataResult<List<CvDetailDto>> getDetailByEmployeeCv() {
+		
+	//	return new SuccessDataResult<List<CvDetailDto>>(employeeDao.getDetailByEmployeeCv(),"Cv detayları listelendi.");
+		return null;
 	}
 	
 	
