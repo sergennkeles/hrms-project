@@ -1,11 +1,15 @@
 package Hrms.hrmsProject.business.concretes;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import Hrms.hrmsProject.business.abstracts.EmployeePhotoService;
+import Hrms.hrmsProject.core.utilities.cloudinary.ImageService;
 import Hrms.hrmsProject.core.utilities.results.DataResult;
 import Hrms.hrmsProject.core.utilities.results.Result;
 import Hrms.hrmsProject.core.utilities.results.SuccessDataResult;
@@ -17,11 +21,13 @@ import Hrms.hrmsProject.entities.concretes.EmployeePhoto;
 public class EmployeePhotoManager implements EmployeePhotoService {
 
 	private EmployeePhotoDao employeePhotoDao;
+	private ImageService imageService;
 	
 	@Autowired
-	public EmployeePhotoManager(EmployeePhotoDao employeePhotoDao) {
+	public EmployeePhotoManager(EmployeePhotoDao employeePhotoDao,ImageService imageService) {
 		super();
 		this.employeePhotoDao = employeePhotoDao;
+		this.imageService=imageService;
 	}
 
 	@Override
@@ -34,6 +40,16 @@ public class EmployeePhotoManager implements EmployeePhotoService {
 	public DataResult<List<EmployeePhoto>> getAll() {
 		
 		return new SuccessDataResult<List<EmployeePhoto>>(employeePhotoDao.findAll());
+	}
+
+	@Override
+	public Result addCloudinary(EmployeePhoto employeePhoto, MultipartFile file) {
+		  Map<String, String> result = (Map<String, String>) this.imageService.save(file).getData();
+	        String url = result.get("url");
+	        employeePhoto.setPhotoLink(url);
+	        employeePhoto.setUploadedDate(LocalDateTime.now());
+	       add(employeePhoto);
+	       return new SuccessResult("Fotoğraf başarıyla yüklendi.");
 	}
 
 }
