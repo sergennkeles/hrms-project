@@ -41,7 +41,8 @@ public class Employer extends User {
 	@Column(name = "phone_number")
 	private String phoneNumber;
 	
-	 @JsonIgnore
+	
 	 @OneToMany(mappedBy = "employer")
+	 @JsonIgnore
 	 private List<JobAdvertisement> jobadvertisements;
 }

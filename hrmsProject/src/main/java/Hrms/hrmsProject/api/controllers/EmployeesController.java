@@ -17,10 +17,7 @@ import Hrms.hrmsProject.business.abstracts.EmployeeService;
 import Hrms.hrmsProject.core.utilities.results.DataResult;
 import Hrms.hrmsProject.core.utilities.results.Result;
 import Hrms.hrmsProject.entities.concretes.Employee;
-
- 
-
-
+import Hrms.hrmsProject.entities.dtos.CvDetailDto;
 
 @RestController
 @RequestMapping("api/employees")
@@ -44,5 +41,11 @@ public class EmployeesController {
 		
 	 return	this.employeeService.add(employee);
 	
+	}
+	
+	@GetMapping("/getDetailByEmployeeCv")
+	public DataResult<List<CvDetailDto>> getDetailByEmployeeCv()
+	{
+		return this.employeeService.getDetailByEmployeeCv();
 	}
 }
