@@ -41,11 +41,11 @@ public class Education {
 //	private int departmentNameId;
 	
 	@ManyToOne
-	@JoinColumn(name = "school")
+	@JoinColumn(name = "school_id")
 	private School school;
 	
 	@ManyToOne
-	@JoinColumn(name = "department")
+	@JoinColumn(name = "department_id")
 	private Department department;
 	
 	@JsonIgnore

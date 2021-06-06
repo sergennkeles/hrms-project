@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "emloyee_languages")
+@Table(name = "employee_languages")
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmployeeLanguage {
@@ -33,7 +33,7 @@ public class EmployeeLanguage {
 //	
 //	@Column(name = "language_level_id")
 //	private int languageLevelId;
-//	
+
 	@ManyToOne
 	@JoinColumn(name = "employee_id")
 	private Employee employee;

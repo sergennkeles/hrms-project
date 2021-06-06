@@ -44,8 +44,14 @@ public class EmployeesController {
 	}
 	
 	@GetMapping("/getDetailByEmployeeCv")
-	public DataResult<List<CvDetailDto>> getDetailByEmployeeCv()
+	public DataResult<CvDetailDto> getDetailByEmployeeCv(int employeeId)
 	{
-		return this.employeeService.getDetailByEmployeeCv();
+		return this.employeeService.getDetailByEmployeeCv(employeeId);
+	}
+	
+	@GetMapping("/findByEmployeeId")
+	public DataResult<List<Employee>> findByEmployeeId(int employeeId)
+	{
+		return this.employeeService.findByEmployeeId(employeeId);
 	}
 }

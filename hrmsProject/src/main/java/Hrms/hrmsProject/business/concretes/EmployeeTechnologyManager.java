@@ -36,4 +36,10 @@ public class EmployeeTechnologyManager implements EmployeeTechnologyService {
 		return new SuccessDataResult<List<EmployeeTechnology>>(employeeTechnologyDao.findAll());
 	}
 
+	@Override
+	public DataResult<List<EmployeeTechnology>> findByEmployee_Id(int employeeId) {
+		 
+		return new SuccessDataResult<List<EmployeeTechnology>>(employeeTechnologyDao.findByEmployee_Id(employeeId));
+	}
+
 }

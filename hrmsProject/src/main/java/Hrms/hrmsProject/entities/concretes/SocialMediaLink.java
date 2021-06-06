@@ -36,7 +36,7 @@ public class SocialMediaLink {
 	private String socialMediaLink;
 	
 	@ManyToOne
-	@JoinColumn(name = "social_media_type")
+	@JoinColumn(name = "social_media_type_id")
 	private SocialMediaType socialMediaType;
 	
 //	@OneToMany(mappedBy = "social_media")

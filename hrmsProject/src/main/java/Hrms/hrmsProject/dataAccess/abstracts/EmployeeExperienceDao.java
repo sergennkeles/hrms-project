@@ -11,4 +11,5 @@ public interface EmployeeExperienceDao extends JpaRepository<EmployeeExperience,
 
 	 
 	List<EmployeeExperience> findByEmployeeIdOrderByExperience_EndDateDesc(int employeeId);
+	List<EmployeeExperience> findByEmployee_Id(int employeeId);
 }

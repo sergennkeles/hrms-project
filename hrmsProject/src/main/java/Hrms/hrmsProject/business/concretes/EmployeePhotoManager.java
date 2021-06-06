@@ -52,4 +52,10 @@ public class EmployeePhotoManager implements EmployeePhotoService {
 	       return new SuccessResult("Fotoğraf başarıyla yüklendi.");
 	}
 
+	@Override
+	public DataResult<List<EmployeePhoto>> findByEmployee_Id(int employeeId) {
+		
+		return new SuccessDataResult<List<EmployeePhoto>>(employeePhotoDao.findByEmployee_Id(employeeId));
+	}
+
 }

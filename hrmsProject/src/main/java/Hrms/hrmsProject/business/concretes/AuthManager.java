@@ -61,7 +61,8 @@ public class AuthManager implements AuthService {
 										isNationaltyIdExist(employee.getNationalityId()),
 										isEmployeeMailExist(employee.getMail()),
 										checkRepeatPassword(employee.getPassword(), 
-												            employee.getRepeatPassword()));
+												            employee.getRepeatPassword())
+										);
 		if (result != null) {
 			return result;
 		}
@@ -76,10 +77,12 @@ public class AuthManager implements AuthService {
 	@Override
 	public Result registerWithEmployer(Employer employer) {
 
-		Result result = BusinessRules.run(checkMailAndDomain(employer.getMail(), employer.getWebSite()),
-				isCompanyMailExist(employer.getMail()),
-				checkNullFieldsForEmployer(employer),
-				checkRepeatPassword(employer.getPassword(),employer.getRepeatPassword()));
+		Result result = BusinessRules.run(checkMailAndDomain(employer.getMail(), 
+															 employer.getWebSite()),
+										  isCompanyMailExist(employer.getMail()),
+										  checkNullFieldsForEmployer(employer),
+										  checkRepeatPassword(employer.getPassword(),
+												  			  employer.getRepeatPassword()));
 
 		if (result != null) {
 			return result;
@@ -150,8 +153,8 @@ public class AuthManager implements AuthService {
 //    private Result realMernisControl(Employee employee) {
 //		
 //  		if (this.mernisCheckService.checkRealPerson(employee).isSuccess()) {
-//  			return new SuccessResult();
-//  		}
+// 			return new SuccessResult();
+// 		}
 //  		return new ErrorResult("Doğrulama başarısız.");
 //  	}
       

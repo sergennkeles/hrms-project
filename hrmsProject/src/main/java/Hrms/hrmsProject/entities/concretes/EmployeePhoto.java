@@ -37,9 +37,15 @@ public class EmployeePhoto {
 	@JoinColumn(name = "employee_id")
 	private Employee employee;
 	
+	@Column(name = "preface")
+	private String preface;
+	
+	
 	@Column(name = "photo_link")
 	private String photoLink;
 	
 	@Column(name="uploaded_date")
     private LocalDateTime uploadedDate;
+	
+	
 }

@@ -36,4 +36,10 @@ public class EmployeeSocialMediaManager implements EmployeeSocialMediaService {
 		return new SuccessDataResult<List<EmployeeSocialMedia>>(employeeSocialMediaDao.findAll());
 	}
 
+	@Override
+	public DataResult<List<EmployeeSocialMedia>> findByEmployee_Id(int employeeId) {
+		 
+		return new SuccessDataResult<List<EmployeeSocialMedia>>(employeeSocialMediaDao.findByEmployee_Id(employeeId));
+	}
+
 }

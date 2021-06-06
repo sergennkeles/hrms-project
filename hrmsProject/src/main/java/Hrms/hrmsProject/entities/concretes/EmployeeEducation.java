@@ -48,6 +48,6 @@ public class EmployeeEducation {
 	private Education education;
 	
 	@ManyToOne
-	@JoinColumn(name = "employee_id")
+	@JoinColumn(name = "employee_id") 
 	private Employee employee;
 }

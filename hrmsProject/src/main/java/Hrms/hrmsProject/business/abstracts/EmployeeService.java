@@ -15,5 +15,6 @@ public interface EmployeeService {
 	DataResult<List<Employee>>  getAll();
 	Result isNationalityIdExist(String nationalityId);
 	Result isEmployeeMailExist(String mail);
-	DataResult<List<CvDetailDto>> getDetailByEmployeeCv();
+	DataResult<CvDetailDto> getDetailByEmployeeCv(int employeeId);
+	DataResult<List<Employee>> findByEmployeeId(int employeeId);
 }

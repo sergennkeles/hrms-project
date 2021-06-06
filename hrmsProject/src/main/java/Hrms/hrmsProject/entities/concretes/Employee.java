@@ -17,6 +17,7 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,6 +31,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "employees")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","employeeEducations","employeeExperiences","employeeSocialMedias","employeeLanguages","employeTechnologies"})
 public class Employee extends User  {
 
 	@NotBlank(message = "Tc kimlik no alanı boş geçilemez.")

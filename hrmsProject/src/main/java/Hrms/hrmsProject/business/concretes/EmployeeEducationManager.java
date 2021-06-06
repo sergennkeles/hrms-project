@@ -42,4 +42,10 @@ public class EmployeeEducationManager implements EmployeeEducationService {
 		return new SuccessDataResult<List<EmployeeEducation>>(employeEducationDao.findByEmployeeIdOrderByEndDate(employeeId));
 	}
 
+	@Override
+	public DataResult<List<EmployeeEducation>> findByEmployee_Id(int employeeId) {
+		
+		return new SuccessDataResult<List<EmployeeEducation>>(employeEducationDao.findByEmployee_Id(employeeId));
+	}
+
 }

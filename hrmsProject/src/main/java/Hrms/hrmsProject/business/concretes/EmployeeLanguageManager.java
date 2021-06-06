@@ -37,4 +37,10 @@ public class EmployeeLanguageManager implements EmployeeLanguageService {
 		return new SuccessDataResult<List<EmployeeLanguage>>(employeeLanguageDao.findAll());
 	}
 
+	@Override
+	public DataResult<List<EmployeeLanguage>> findByEmployee_Id(int employeeId) {
+		
+		return new SuccessDataResult<List<EmployeeLanguage>>(employeeLanguageDao.findByEmployee_Id(employeeId));
+	}
+
 }

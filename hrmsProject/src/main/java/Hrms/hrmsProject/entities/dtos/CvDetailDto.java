@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CvDetailDto {
 
-//	private int id;
+//	private int employeeId;
 //	private String firstName;
 //	private String lastName;
 //	private String schoolName;
@@ -28,7 +28,7 @@ public class CvDetailDto {
 //	private Date educationEndDate;
 //	private String languageName;
 //	private String languageLevelName;
-//	private String experienceCompanyName;
+//	private String companyName;
 //	private String experienceDepartmentName;
 //	private Date experienceStartDate;
 //	private Date experienceEndDate;
@@ -36,14 +36,13 @@ public class CvDetailDto {
 //	private String socialMediaLink;
 //	private String technologyName;
 //	private String photo;
-	
-	private  Employee employee;
+
+	private Employee employee;
 	private List<EmployeeEducation> employeeEducations;
 	private List<EmployeeExperience> employeeExperiences;
 	private List<EmployeeLanguage> employeeLanguages;
 	private List<EmployeeSocialMedia> employeeSocialMedias;
 	private List<EmployeeTechnology> employeeTechnologies;
 	private List<EmployeePhoto> employeePhotos;
-	
-	
+
 }
