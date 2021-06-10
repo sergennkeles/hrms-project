@@ -6,38 +6,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 
-import Hrms.hrmsProject.business.abstracts.SchoolService;
+import Hrms.hrmsProject.business.abstracts.CityService;
 import Hrms.hrmsProject.core.utilities.results.DataResult;
 import Hrms.hrmsProject.core.utilities.results.Result;
-import Hrms.hrmsProject.entities.concretes.School;
+import Hrms.hrmsProject.entities.concretes.City;
 
 @RestController
-@RequestMapping("/api/schools")
+@RequestMapping("/api/cities")
 @CrossOrigin
-public class SchoolsController {
+public class CitiesController {
 
-	private SchoolService schoolService;
-	
+	private CityService cityService;
+
 	@Autowired
-	public SchoolsController(SchoolService schoolService) {
+	public CitiesController(CityService cityService) {
 		super();
-		this.schoolService = schoolService;
+		this.cityService = cityService;
+	}
+	
+	@GetMapping("/getall")
+	public DataResult<List<City>> getAll(){
+		return this.cityService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody School school)
+	public Result add(City city)
 	{
-		return schoolService.add(school);
+		return this.cityService.add(city);
 	}
-	
-	@GetMapping("/getAll")
-	public DataResult<List<School>> getAll()
-	{
-		return schoolService.getAll();
-	}
-	
 }

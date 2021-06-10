@@ -49,7 +49,7 @@ public class Employee extends User  {
 	@NotBlank(message = "Doğum tarihi alanı boş geçilemez.")
 	@Column(name = "birthday")
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private Date birthDay;
+	private Date birthDay; 
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "employee")
