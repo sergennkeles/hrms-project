@@ -16,6 +16,8 @@ public class JobAdvertisementDto {
 	private String description;
 	private double minSalary;
 	private double maxSalary;
+	private String workingTime;
+	private String workingType;
 	private Date createdDate;
 	private Date deadLineDate;
 	private int openPositionNumber;

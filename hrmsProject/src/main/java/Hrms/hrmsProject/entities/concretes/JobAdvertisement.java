@@ -66,7 +66,6 @@ public class JobAdvertisement {
 	
 	@ManyToOne
 	@JoinColumn(name = "job_id")
-
 	private Job job;
 	
 	@ManyToOne
@@ -78,7 +77,12 @@ public class JobAdvertisement {
 	private City city;
 	
 	
+	@ManyToOne
+	@JoinColumn(name = "working_type_id")
+	private WorkingType workingType;
 	
-	
+	@ManyToOne
+	@JoinColumn(name = "working_time_id")
+	private WorkingTime workingTime;
 	
 }
