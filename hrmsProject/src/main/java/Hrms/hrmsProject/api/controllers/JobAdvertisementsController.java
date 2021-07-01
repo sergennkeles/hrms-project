@@ -47,6 +47,12 @@ public class JobAdvertisementsController {
         return this.advertisementService.findByIsActiveTrue();
     }
 	
+	@GetMapping("/getPassiveAdvertisement")
+    public DataResult<List<JobAdvertisement>> getPassiveAdvertisement()
+    {
+        return this.advertisementService.findByIsActiveFalse();
+    }
+	
 	@GetMapping("/findByIsActiveTrueCreatedDateOrderByDesc")
     public DataResult<List<JobAdvertisement>> findByIsActiveTrueCreatedDateOrderByDesc()
     {
@@ -69,5 +75,11 @@ public class JobAdvertisementsController {
 	public DataResult<List<JobAdvertisementDto>> getJobAdvertisementWithDetails()
 	{
 		return advertisementService.getJobAdvertisementWithDetails();
+	}
+	
+	@GetMapping("/getById")
+	public DataResult<JobAdvertisement> getById(int id)
+	{
+		return advertisementService.getById(id);
 	}
 }

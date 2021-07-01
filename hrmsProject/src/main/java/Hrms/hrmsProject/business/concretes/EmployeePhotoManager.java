@@ -58,4 +58,16 @@ public class EmployeePhotoManager implements EmployeePhotoService {
 		return new SuccessDataResult<List<EmployeePhoto>>(employeePhotoDao.findByEmployee_Id(employeeId));
 	}
 
+	@Override
+	public Result update(EmployeePhoto employeePhoto) {
+	 EmployeePhoto updatePhoto=employeePhotoDao.findById(employeePhoto.getId()).orElse(null);
+	 updatePhoto.setId(employeePhoto.getId());
+	 updatePhoto.setEmployee(employeePhoto.getEmployee());
+	 updatePhoto.setPhotoLink(employeePhoto.getPhotoLink());
+	 updatePhoto.setPreface(employeePhoto.getPreface());
+	 updatePhoto.setUploadedDate(employeePhoto.getUploadedDate());
+	 employeePhotoDao.save(updatePhoto);
+		return new SuccessResult("Güncelleme başarılı.");
+	}
+
 }

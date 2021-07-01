@@ -13,10 +13,11 @@ public interface JobAdvertisementService {
 	DataResult<List<JobAdvertisement>>  getAll();
 	Result add(JobAdvertisement advertisement);
 	DataResult<List<JobAdvertisement>> findByIsActiveTrue();
+	DataResult<List<JobAdvertisement>> findByIsActiveFalse();
 	DataResult<List<JobAdvertisement>> findByIsActiveTrueCreatedDateOrderByDesc();
 	DataResult<List<JobAdvertisement>>  findByIsActiveTrueAndEmployerId(int id);
 	DataResult<List<JobAdvertisementDto>> getJobAdvertisementWithDetails();
-	
+	DataResult<JobAdvertisement> getById(int id);
 	Result setValueOfActive(int id,boolean active);
 
 }

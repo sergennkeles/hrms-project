@@ -28,4 +28,10 @@ public class SystemUsersController {
 	{
 		return systemUserService.employerConfirm(id, active);
 	}
+	
+	@PutMapping("jobadvertisementconfirm")
+	public Result jobAdvertisementConfirm(int id, boolean active)
+	{
+		return systemUserService.jobAdvertisementConfirm(id, active);
+	}
 }

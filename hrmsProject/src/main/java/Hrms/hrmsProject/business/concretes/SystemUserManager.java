@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Hrms.hrmsProject.business.abstracts.EmployerService;
+import Hrms.hrmsProject.business.abstracts.JobAdvertisementService;
 import Hrms.hrmsProject.business.abstracts.SystemUserService;
 import Hrms.hrmsProject.core.utilities.results.Result;
 import Hrms.hrmsProject.core.utilities.results.SuccessResult;
@@ -14,12 +15,14 @@ public class SystemUserManager implements SystemUserService {
 
 	private SystemUserDao systemUserDao;
 	private EmployerService employerService;
+	private JobAdvertisementService jobAdvertisementService;
 	
 	@Autowired
-	public SystemUserManager(SystemUserDao systemUserDao,EmployerService employerService) {
+	public SystemUserManager(SystemUserDao systemUserDao,EmployerService employerService, JobAdvertisementService jobAdvertisementService) {
 		
 		this.systemUserDao = systemUserDao;
 		this.employerService=employerService;
+		this.jobAdvertisementService=jobAdvertisementService;
 	}
 
 
@@ -28,6 +31,13 @@ public class SystemUserManager implements SystemUserService {
 		
 		this.employerService.employerConfirm(id, active);
 		return new SuccessResult();
+	}
+
+
+	@Override
+	public Result jobAdvertisementConfirm(int id, boolean active) {
+		 this.jobAdvertisementService.setValueOfActive(id, active);
+		 return new SuccessResult();
 	}
 
 }

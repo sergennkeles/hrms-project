@@ -3,6 +3,8 @@ package Hrms.hrmsProject.entities.dtos;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class JobAdvertisementDto {
 
- 
+    private int advertisementId;
 	private String description;
 	private double minSalary;
 	private double maxSalary;
