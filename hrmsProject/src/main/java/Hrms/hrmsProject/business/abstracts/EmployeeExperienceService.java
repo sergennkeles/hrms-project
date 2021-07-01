@@ -11,6 +11,7 @@ import Hrms.hrmsProject.entities.concretes.EmployeeExperience;
 public interface EmployeeExperienceService {
 
 	Result add(EmployeeExperience employeeExperience);
+	Result update(EmployeeExperience employeeExperience);
 	DataResult<List<EmployeeExperience>> getAll();
 	DataResult<List<EmployeeExperience>>  findByEmployeeIdOrderByEndDateDesc(int employeeId);
 	DataResult<List<EmployeeExperience>> findByEmployee_Id(int employeeId);

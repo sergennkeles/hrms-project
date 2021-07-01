@@ -42,4 +42,14 @@ public class EmployeeTechnologyManager implements EmployeeTechnologyService {
 		return new SuccessDataResult<List<EmployeeTechnology>>(employeeTechnologyDao.findByEmployee_Id(employeeId));
 	}
 
+	@Override
+	public Result update(EmployeeTechnology employeeTechnology) {
+		EmployeeTechnology updateTechnology=employeeTechnologyDao.findById(employeeTechnology.getEmployee().getId()).orElse(employeeTechnology);
+		updateTechnology.setId(employeeTechnology.getId());
+		updateTechnology.setEmployee(employeeTechnology.getEmployee());
+		updateTechnology.setTechnology(employeeTechnology.getTechnology());
+		employeeTechnologyDao.save(updateTechnology);
+		return new SuccessResult("Güncelleme başarılı");
+	}
+
 }

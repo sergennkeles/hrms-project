@@ -42,4 +42,15 @@ public class EmployeeSocialMediaManager implements EmployeeSocialMediaService {
 		return new SuccessDataResult<List<EmployeeSocialMedia>>(employeeSocialMediaDao.findByEmployee_Id(employeeId));
 	}
 
+	@Override
+	public Result update(EmployeeSocialMedia employeeSocialMedia) {
+		
+		EmployeeSocialMedia updateSocialMedia=employeeSocialMediaDao.findById(employeeSocialMedia.getEmployee().getId()).orElse(null);
+		updateSocialMedia.setId(employeeSocialMedia.getId());
+		updateSocialMedia.setEmployee(employeeSocialMedia.getEmployee());
+		updateSocialMedia.setSocialMediaLink(employeeSocialMedia.getSocialMediaLink());
+		employeeSocialMediaDao.save(updateSocialMedia);
+		return new SuccessResult("Güncelleme başarılı.");
+	}
+
 }

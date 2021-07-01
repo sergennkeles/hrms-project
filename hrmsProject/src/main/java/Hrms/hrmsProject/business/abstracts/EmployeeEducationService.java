@@ -9,6 +9,7 @@ import Hrms.hrmsProject.entities.concretes.EmployeeEducation;
 public interface EmployeeEducationService {
 
 	Result add(EmployeeEducation employeeEducation);
+	Result update(EmployeeEducation employeeEducation);
 	DataResult<List<EmployeeEducation>> getAll();
 	DataResult<List<EmployeeEducation>> findByEmployeeIdOrderByEndDate(int employeeId);
 	DataResult<List<EmployeeEducation>> findByEmployee_Id(int employeeId);

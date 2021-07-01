@@ -48,4 +48,14 @@ public class EmployeeExperienceManager implements EmployeeExperienceService {
 		return new SuccessDataResult<List<EmployeeExperience>>(employeeExperienceDao.findByEmployee_Id(employeeId));
 	}
 
+	@Override
+	public Result update(EmployeeExperience employeeExperience) {
+		EmployeeExperience updateExperiencee=employeeExperienceDao.findById(employeeExperience.getEmployee().getId()).orElse(null);
+		updateExperiencee.setId(employeeExperience.getId());
+		updateExperiencee.setEmployee(employeeExperience.getEmployee());
+		updateExperiencee.setExperience(employeeExperience.getExperience());
+		employeeExperienceDao.save(updateExperiencee);
+		return new SuccessResult("Güncelleme başarılı.");
+	}
+
 }

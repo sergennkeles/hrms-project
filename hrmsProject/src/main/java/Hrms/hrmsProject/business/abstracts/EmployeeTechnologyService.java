@@ -10,6 +10,7 @@ import Hrms.hrmsProject.entities.concretes.EmployeeTechnology;
 public interface EmployeeTechnologyService {
 
 	Result add(EmployeeTechnology employeeTechnology);
+	Result update(EmployeeTechnology employeeTechnology);
 	DataResult<List<EmployeeTechnology>> getAll();
 	DataResult<List<EmployeeTechnology>> findByEmployee_Id(int employeeId);
 }

@@ -54,7 +54,7 @@ public class EmployerManager implements EmployerService {
 
 	@Override
 	public Result employerConfirm(int id, boolean active) {
-		
+	
 		Employer tempValue=this.employerDao.findById(id).orElse(null);
 		tempValue.setActive(active);
 		this.employerDao.save(tempValue);

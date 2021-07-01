@@ -10,6 +10,7 @@ import Hrms.hrmsProject.entities.concretes.EmployeeSocialMedia;
 public interface EmployeeSocialMediaService {
 
 	Result add(EmployeeSocialMedia employeeSocialMedia);
+	Result update(EmployeeSocialMedia employeeSocialMedia);
 	DataResult<List<EmployeeSocialMedia>> getAll();
 	DataResult<List<EmployeeSocialMedia>> findByEmployee_Id(int employeeId);
 }

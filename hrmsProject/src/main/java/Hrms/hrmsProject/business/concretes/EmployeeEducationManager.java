@@ -48,4 +48,16 @@ public class EmployeeEducationManager implements EmployeeEducationService {
 		return new SuccessDataResult<List<EmployeeEducation>>(employeEducationDao.findByEmployee_Id(employeeId));
 	}
 
+	@Override
+	public Result update(EmployeeEducation employeeEducation) {
+		 EmployeeEducation updatEducation=employeEducationDao.findById(employeeEducation.getEmployee().getId()).orElse(null);
+		 updatEducation.setId(employeeEducation.getId());
+		 updatEducation.setEducation(employeeEducation.getEducation( ));
+		 updatEducation.setEmployee(employeeEducation.getEmployee());
+		 updatEducation.setStartDate(employeeEducation.getStartDate());
+		 updatEducation.setEndDate(employeeEducation.getEndDate());
+		 employeEducationDao.save(updatEducation);
+		return new SuccessResult("Güncelleme başarılı.");
+	}
+
 }

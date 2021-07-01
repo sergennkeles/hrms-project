@@ -43,4 +43,16 @@ public class EmployeeLanguageManager implements EmployeeLanguageService {
 		return new SuccessDataResult<List<EmployeeLanguage>>(employeeLanguageDao.findByEmployee_Id(employeeId));
 	}
 
+	@Override
+	public Result update(EmployeeLanguage employeeLanguage) {
+		 
+		EmployeeLanguage updateLanguage=employeeLanguageDao.findById(employeeLanguage.getEmployee().getId()).orElse(null);
+		updateLanguage.setId(employeeLanguage.getId());
+		updateLanguage.setEmployee(employeeLanguage.getEmployee());
+		updateLanguage.setLanguage(employeeLanguage.getLanguage());
+		updateLanguage.setLanguageLevel(employeeLanguage.getLanguageLevel());
+		employeeLanguageDao.save(updateLanguage);
+		return new SuccessResult("Güncelleme başarılı");
+	}
+
 }

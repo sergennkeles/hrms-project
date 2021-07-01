@@ -10,6 +10,7 @@ import Hrms.hrmsProject.entities.concretes.EmployeeLanguage;
 public interface EmployeeLanguageService {
 
 	Result add(EmployeeLanguage employeeLanguage);
+	Result update(EmployeeLanguage employeeLanguage);
 	DataResult<List<EmployeeLanguage>> getall();
 	DataResult<List<EmployeeLanguage>> findByEmployee_Id(int employeeId);
 }
