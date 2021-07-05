@@ -9,6 +9,7 @@ import Hrms.hrmsProject.business.abstracts.SystemUserService;
 import Hrms.hrmsProject.core.utilities.results.Result;
 import Hrms.hrmsProject.core.utilities.results.SuccessResult;
 import Hrms.hrmsProject.dataAccess.abstracts.SystemUserDao;
+import Hrms.hrmsProject.entities.concretes.SystemUser;
 
 @Service
 public class SystemUserManager implements SystemUserService {
@@ -38,6 +39,28 @@ public class SystemUserManager implements SystemUserService {
 	public Result jobAdvertisementConfirm(int id, boolean active) {
 		 this.jobAdvertisementService.setValueOfActive(id, active);
 		 return new SuccessResult();
+	}
+
+
+	@Override
+	public Result add(SystemUser systemUser) {
+	 this.systemUserDao.save(systemUser);
+		return new SuccessResult("Sistem kullanıcısı eklendi.");
+	}
+
+
+	@Override
+	public Result update(SystemUser systemUser) {
+	 SystemUser updateSystemUser=this.systemUserDao.findById(systemUser.getId()).orElse(null);
+	 updateSystemUser.setId(systemUser.getId());
+	 updateSystemUser.setFirstName(systemUser.getFirstName());
+	 updateSystemUser.setLastName(systemUser.getLastName());
+	 updateSystemUser.setMail(systemUser.getMail());
+	 updateSystemUser.setPassword(systemUser.getPassword());
+	 updateSystemUser.setRepeatPassword(systemUser.getRepeatPassword());
+	 updateSystemUser.setTitle(systemUser.getTitle());
+	 this.systemUserDao.save(updateSystemUser);
+		return new SuccessResult("Sistem kullanıcısı güncellendi.");
 	}
 
 }

@@ -60,4 +60,18 @@ public class EmployerManager implements EmployerService {
 		this.employerDao.save(tempValue);
 		return new SuccessResult("İşveren onaylandı.");
 	}
+
+	@Override
+	public Result update(Employer employer) {
+	 Employer updateEmployer=this.employerDao.findById(employer.getId()).orElse(null);
+	 updateEmployer.setId(employer.getId());
+	 updateEmployer.setCompanyName(employer.getCompanyName());
+	 updateEmployer.setMail(employer.getMail());
+	 updateEmployer.setPassword(employer.getPassword());
+	 updateEmployer.setRepeatPassword(employer.getRepeatPassword());
+	 updateEmployer.setPhoneNumber(employer.getPhoneNumber());
+	 updateEmployer.setWebSite(employer.getWebSite());
+	 this.employerDao.save(updateEmployer);
+		return new SuccessResult("İşveren güncellendi.");
+	}
 }

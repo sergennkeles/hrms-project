@@ -11,6 +11,7 @@ public interface EmployerService {
 	
 	DataResult<List<Employer>>  getAll();
 	Result add(Employer employer);
+	Result update(Employer employer);
 	Result isCompanyMailExist(String mail);
 	Result employerConfirm(int id,boolean active);
 	
