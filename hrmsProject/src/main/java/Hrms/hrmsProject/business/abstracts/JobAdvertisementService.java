@@ -17,6 +17,10 @@ public interface JobAdvertisementService {
 	DataResult<List<JobAdvertisement>> findByIsActiveTrueCreatedDateOrderByDesc();
 	DataResult<List<JobAdvertisement>>  findByIsActiveTrueAndEmployerId(int id);
 	DataResult<List<JobAdvertisementDto>> getJobAdvertisementWithDetails();
+	DataResult<List<JobAdvertisement>>  findByWorkingTypeId(int id);
+	DataResult<List<JobAdvertisement>> findByWorkingTimeId(int id);
+    DataResult<List<JobAdvertisement>> findByCityId(int id);
+	DataResult<List<JobAdvertisement>> findByJobId(int id);
 	DataResult<JobAdvertisement> getById(int id);
 	Result setValueOfActive(int id,boolean active);
 

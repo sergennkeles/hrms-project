@@ -100,6 +100,38 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 		
 		return new SuccessDataResult<JobAdvertisement>(advertisementDao.findById(id).get());
 	}
+
+
+
+	@Override
+	public DataResult<List<JobAdvertisement>> findByWorkingTypeId(int id) {
+	
+		return new SuccessDataResult<List<JobAdvertisement>>(advertisementDao.findByWorkingTypeId(id),"Çalışma şekline göre ilanlar listelendi.");
+	}
+
+
+
+	@Override
+	public DataResult<List<JobAdvertisement>> findByWorkingTimeId(int id) {
+		 
+		return new SuccessDataResult<List<JobAdvertisement>>(advertisementDao.findByWorkingTimeId(id),"Çalışma zamanına göre ilanlar listelendi.");
+	}
+
+
+
+	@Override
+	public DataResult<List<JobAdvertisement>> findByCityId(int id) {
+	 
+		return new SuccessDataResult<List<JobAdvertisement>>(advertisementDao.findByCityId(id),"Lokasyona göre ilanlar listelendi.");
+	}
+
+
+
+	@Override
+	public DataResult<List<JobAdvertisement>> findByJobId(int id) {
+		 
+		return new SuccessDataResult<List<JobAdvertisement>>(advertisementDao.findByJobId(id),"Pozisyona göre göre ilanlar listelendi.");
+	}
 	
 	
 

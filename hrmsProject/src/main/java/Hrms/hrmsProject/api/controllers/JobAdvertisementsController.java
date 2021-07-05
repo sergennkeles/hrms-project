@@ -74,12 +74,38 @@ public class JobAdvertisementsController {
 	@GetMapping("/getJobAdvertisementWithDetails")
 	public DataResult<List<JobAdvertisementDto>> getJobAdvertisementWithDetails()
 	{
-		return advertisementService.getJobAdvertisementWithDetails();
+		return this.advertisementService.getJobAdvertisementWithDetails();
 	}
 	
 	@GetMapping("/getById")
 	public DataResult<JobAdvertisement> getById(int id)
 	{
-		return advertisementService.getById(id);
+		return this.advertisementService.getById(id);
 	}
+	
+	@GetMapping("/findByWorkingTypeId")
+	public DataResult<List<JobAdvertisement>> findByWorkingTypeId(int id)
+	{
+		return this.advertisementService.findByWorkingTypeId(id);
+	}
+	
+	@GetMapping("/findByWorkingTimeId")
+	public DataResult<List<JobAdvertisement>> findByWorkingTimeId(int id)
+	{
+		return this.advertisementService.findByWorkingTimeId(id);
+	}
+	
+	@GetMapping("/findByCityId")
+	public DataResult<List<JobAdvertisement>> findByCityId(int id)
+	{
+		return this.advertisementService.findByCityId(id);
+	}
+	
+	@GetMapping("/findByJobId")
+	public DataResult<List<JobAdvertisement>> findByJobId(int id)
+	{
+		return this.advertisementService.findByJobId(id);
+	}
+	
+	
 }
